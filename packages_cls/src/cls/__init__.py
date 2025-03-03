@@ -3,6 +3,11 @@ import sys as system
 
 def clear():
     if system.platform.startswith(('win32')):
-        os.system('cls')
+        cmd = "cls"
     elif system.platform.startswith(('linux', 'cygwin', 'darwin', 'freebsd')):
-        os.system('clear')
+        cmd = "clear"
+    else:
+        print("Platform not recognised")
+        cmd = input("Clear screen command on your computer")
+    cmd_cls_v = os.system(cmd)
+    del cmd_cls_v
